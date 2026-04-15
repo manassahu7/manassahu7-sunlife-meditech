@@ -6,6 +6,15 @@
   <title>Sunlife Meditech | Hospitals Trusted Medical Supplier</title>
   <link rel="stylesheet" href="css/style.css"/>
   <style>
+    /* SPLASH SCREEN */
+    #splash { position: fixed; inset: 0; z-index: 9999; background: #0a1520; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease; }
+    #splash.hide { opacity: 0; pointer-events: none; }
+    #splash-logo { width: 380px; animation: splashPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+    @keyframes splashPop { 0%{opacity:0;transform:scale(0.3)} 100%{opacity:1;transform:scale(1)} }
+    #splash-logo.fly-up { transition: transform 0.9s cubic-bezier(0.4,0,0.2,1), opacity 0.5s ease, width 0.8s ease; transform: translateY(-120vh) scale(0.25); opacity: 0; width: 80px; }
+    body.splash-active { overflow: hidden; }
+  </style>
+  <style>
     #home-hero { min-height: 100vh; background: var(--dark); display: flex; align-items: center; padding: 100px 6% 80px; position: relative; overflow: hidden; }
     .hero-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(0,86,140,0.12) 1px, transparent 1px), linear-gradient(90deg, rgba(0,86,140,0.12) 1px, transparent 1px); background-size: 55px 55px; animation: bgScroll 25s linear infinite; }
     @keyframes bgScroll { from{transform:translateY(0)} to{transform:translateY(55px)} }
@@ -76,7 +85,12 @@
     @media (max-width: 640px) { .pp-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
-<body>
+<body class="splash-active">
+
+<!-- SPLASH SCREEN -->
+<div id="splash">
+  <img id="splash-logo" src="images/logo.png" alt="Sunlife Meditech"/>
+</div>
 <nav id="mainNav">
   <a href="index.html" class="logo-wrap"><img src="images/logo.png" alt="Sunlife Meditech"/></a>
   <ul class="nav-links" id="navLinks">
@@ -216,5 +230,29 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script>
+  // Splash screen animation
+  window.addEventListener("load", function() {
+    var splash = document.getElementById("splash");
+    var logo = document.getElementById("splash-logo");
+
+    // Step 1: Logo pops in (handled by CSS animation)
+    // Step 2: After 1.8s, logo flies up to navbar position
+    setTimeout(function() {
+      logo.classList.add("fly-up");
+    }, 1000);
+
+    // Step 3: After fly-up completes, hide splash and show page
+    setTimeout(function() {
+      splash.classList.add("hide");
+      document.body.classList.remove("splash-active");
+    }, 1800);
+
+    // Step 4: Remove splash from DOM completely
+    setTimeout(function() {
+      splash.remove();
+    }, 2400);
+  });
+</script>
 </body>
 </html>
