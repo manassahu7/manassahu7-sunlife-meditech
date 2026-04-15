@@ -24,8 +24,8 @@ nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 500; padding: 0 6%
 nav.scrolled { background: #0a1520; backdrop-filter: blur(10px); box-shadow: 0 2px 24px rgba(0,0,0,0.3); }
 nav.solid { background: #0a1520; box-shadow: 0 2px 24px rgba(0,0,0,0.3); }
 .logo-wrap { display: flex; align-items: center; text-decoration: none; }
-.logo-wrap img { height: 76px; width: auto; object-fit: contain; }
-.footer-logo img { height: 80px; width: auto; object-fit: contain; }
+.logo-wrap img { height: 70px; width: 180px; object-fit: contain; }
+.footer-logo img { height: 80px; width: 200px; object-fit: contain; }
 .nav-links { display: flex; gap: 36px; list-style: none; }
 .nav-links a { color: rgba(255,255,255,0.75); font-size: 14px; font-weight: 500; text-decoration: none; transition: color 0.2s; }
 .nav-links a:hover, .nav-links a.active { color: white; }
@@ -64,7 +64,7 @@ nav.solid { background: #0a1520; box-shadow: 0 2px 24px rgba(0,0,0,0.3); }
 footer { background: #0a1520; padding: 56px 6% 28px; }
 .footer-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 50px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08); }
 .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.4); line-height: 1.8; margin-top: 14px; max-width: 290px; }
-.footer-logo img { height: 80px; width: auto; object-fit: contain; }
+.footer-logo img { height: 80px; width: 200px; object-fit: contain; }
 .footer-offices { margin-top: 18px; }
 .fo-block { margin-bottom: 16px; }
 .fo-label { font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--orange); margin-bottom: 6px; }
